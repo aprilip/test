@@ -1,0 +1,22 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "data structure",
+  "main": "index.js",
+  "scripts": {
+    "test": "myscript.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aprilip/test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aprilip/test/issues"
+  },
+  "homepage": "https://github.com/aprilip/test#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
