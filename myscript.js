@@ -21,6 +21,7 @@ if(weight>=10 && weight<=200)
     if(height>=50&&height<=220)
     {
         var bmi = weight/((height/100)**2);
+        
         console.log("Hello! Your BMI value is "+ bmi);
     }
     else
