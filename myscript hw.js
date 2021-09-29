@@ -16,23 +16,7 @@ console.log("Hello! Your BMI value is "+ bmi);
 const readline = require('readline-sync');
 weight = readline.question('請輸入您的體重(kg)?');
 height = readline.question('請輸入您的身高(cm)?'); 
-weight=Number(weight)// 將字串轉成數字
-height=Number(height)// 將字串轉成數字
-//判斷是否合理（process)
-if(isNaN(weight)||weight<=0||weight>630)
-{
-    console.log("您輸入的資料有誤！請輸入介於1~630之間的數字")
-}
-else if(isNaN(height)||height<=0||weight>220)
-{
-    console.log("您輸入的資料有誤！請輸入介於1~220之間的數字")
-}
-else{
-//計算bmi值
-var bmi = weight/((height/100)**2);
 
-console.log("Hello! Your BMI value is "+ bmi);
-}
 if(weight>=10 && weight<=200)
 {
     if(height>=50&&height<=220)

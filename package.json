@@ -18,5 +18,6 @@
   "homepage": "https://github.com/aprilip/test#readme",
   "dependencies": {
     "readline-sync": "^1.4.10"
-  }
+  },
+  "devDependencies": {}
 }
