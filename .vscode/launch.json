@@ -6,8 +6,7 @@
     "configurations": [
         {
             "name": "Launch Program",
-            //"program": "${workspaceFolder}/${file}",
-            "program": "${workspaceFolder}/Elevator V1.js",
+            "program": "${file}",
             "request": "launch",
             "skipFiles": [
                 "<node_internals>/**"
@@ -15,39 +14,17 @@
             "type": "node",
             "console": "integratedTerminal"
         },
-        {
-            "name": "Launch Program",
-            //"program": "${workspaceFolder}/${file}",
-            "program": "${workspaceFolder}/myscript hw.js",
-            "request": "launch",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "type": "node",
-            "console": "integratedTerminal"
-        },
+        
+       
+       
+       
 
         {
-            "name": "Launch Program",
-            //"program": "${workspaceFolder}/${file}",
-            "program": "${workspaceFolder}/myscript 02.js",
-            "request": "launch",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
             "type": "node",
-            "console": "integratedTerminal"
-        },
-
-        {
-            "name": "Launch Program",
-            //"program": "${workspaceFolder}/${file}",
-            "program": "${workspaceFolder}/myscript.js",
             "request": "launch",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "type": "node",
+            "name": "啟動程式",
+            "program": "${workspaceFolder}/${file}",    
+            "skipFiles": [ "<node_internals>/**"],
             "console": "integratedTerminal"
         },
 
@@ -56,13 +33,14 @@
 
 
         {
-            "type": "pwa-node",
+            "type": "node",
             "request": "launch",
-            "name": "Launch Program",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${file}"
+            "name": "外部終端機",
+            "skipFiles": [ "<node_internals>/**" ],
+            "program": "${file}",
+            "console": "integratedTerminal"
+            },
+        
+        ]
+
         }
-    ]
-}

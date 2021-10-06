@@ -24,14 +24,14 @@ else
 {
 //移動電梯至欲達樓層
 //currentFloor移到targetFloor
-console.log("to be countinue...");
 if(targetFloor<currentFloor)
 { //down
 console.log("電梯往下...");
 //改用for(初始值;條件判斷;累加減){}
-while(targetFloor<currentFloor)
+//for(var i=currentFloor; i>targetFloor;i--)
+for(;targetFloor<currentFloor;currentFloor--)//{下方無需再減一}
 {
-    currentFloor=currentFloor-1;
+    //currentFloor=currentFloor-1;
     //currentFloor-=1;
     //currentFloor--;
     console.log("電梯在"+currentFloor+"樓");
@@ -41,14 +41,15 @@ while(targetFloor<currentFloor)
 else
 { //up
     console.log("電梯往上...");
-    while(targetFloor>currentFloor)
+    do
     {
         currentFloor=currentFloor+1;
         //currentFloor+=1;
         //currentFloor++;
         console.log("電梯在"+currentFloor+"樓");
     }
-    
+    while(targetFloor>currentFloor);
+   
 }
 
 }
