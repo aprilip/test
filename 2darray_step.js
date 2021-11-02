@@ -26,7 +26,7 @@ do{
         console.log("Input error! ");
         continue;
     }
-    var step=0
+    var step=0;
     var idx= aryBox[startR][startC].split(",");//idx[0]=>row idx[1]=>col(自己設定的存取順序)索引值0會在1的前面
     aryVisited[startR][startC]=1;
     step++;
