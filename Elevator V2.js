@@ -50,7 +50,7 @@ else
     }
     while(targetFloor>currentFloor);
    
-}
+}//do...while 語法:用來讓你可以確保迴圈至少被執行一次 (第一次)
 
 }
 

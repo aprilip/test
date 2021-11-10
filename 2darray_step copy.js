@@ -11,8 +11,11 @@ var aryBox=[];
 var aryVisited=[]
 
 //define a new object
-class Index{
+class Index//要宣告一個類別，你要使用關鍵字class搭配類別名稱//你需要先宣告你的類別，然後存取它
+{
     constructor(_row, _col)//constructor為建構元函數 //_row、 _col前方底線為好辨認
+    //constructor為建構元函數，用來建立和初始化一個類別的物件。一個類別只能有一個名為建構子(constructor)的特別方法 
+    //是個隨著class一同建立並初始化物件的特殊方法
     {
        if(_row>=0 && _row<Row && _col>=0 && _col <Col)
        {
@@ -20,7 +23,7 @@ class Index{
             this.col = _col; //this
        }else
        {
-            this.row = null;
+            this.row = null;//null表示空值，即該處的值現在為空。 調用函數時，某個参數未設置任何值，这时就可以传入null，表示該参數為空
             this.col = null;
        }
     }
@@ -51,7 +54,8 @@ for (let r = 0; r <Row; r++)
 }
 
 
-do{
+   do
+   {
    var startR= parseInt(readline.question('Row start?'));
    var startC= parseInt(readline.question('Col start?'));
    if(isNaN(startR) || isNaN(startC) || startR<0 || startR>=Row || startC<0 || startC>=Col){
@@ -64,7 +68,8 @@ do{
    aryVisited[startR][startC]=1;
    console.log("Visit:"+ startR+", "+startC);
    //loop
-   while(true){
+   while(true)
+   {
        var nextR = idx.row;
        var nextC = idx.col;
        if(aryVisited[nextR][nextC]==1){

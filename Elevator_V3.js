@@ -20,7 +20,7 @@ while(true) //無窮迴圈
 //輸入欲達樓層
 //判斷樓層是否合理，從floorName.indexOf()取出索引值，若為-1代表無此樓
 targetFloor=targetFloor.toUpperCase();
-targetFloor=floorName.indexOf(targetFloor);//轉成整數,字串
+targetFloor=floorName.indexOf(targetFloor);//轉成陣列中索引值位置
 //if(isNaN(targetFloor)||targetFloor<bottom||targetFloor>top)
 if(targetFloor<0)
 {

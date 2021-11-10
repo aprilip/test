@@ -55,7 +55,7 @@ for(let startR=0;startR<row;startR++)
     //console.log("Visit:"+ startR+","+startC);
     
 
-   for(let stepover=0; stepover<row*col; stepover++)      //因不知會走幾步，有可能每一格都走到，所以設回圈為陣列的最大值
+   for(let stepover=0; stepover<row*col; stepover++)//因不知會走幾步，有可能每一格都走到，所以設回圈為陣列的最大值
     {
         var nextR = parseInt(idx[0]);  //取出下次要拜訪的列值，但因這取法(取1位數)，所以陣列最大是10*10 (0~9)
         var nextC = parseInt(idx[1]);  //取出下次要拜訪的行值
@@ -68,7 +68,7 @@ for(let startR=0;startR<row;startR++)
             {
                 stepN= stepN+" & "+startR+","+startC;
             }
-            if(step>stepmax) //如果本次總步數 大於 最大步數，則取代 最大步數
+            if(step>stepmax) //如果本次總步數大於最大步數，則取代最大步數
             {
                 stepmax=step;
                 stepN=startR+","+startC;

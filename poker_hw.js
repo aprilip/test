@@ -4,32 +4,44 @@ for(var i=0;i<52;i++)
 switch(parseInt(i/13))
 {
     case 0:
-        if (parseInt(i%13)<9){//因比數字大小的話，H2會比H12大（由第一個數字判斷），故需將1~9改為字串01~09
+        if (parseInt(i%13)<9)//因比數字大小的話，H2會比H12大（由第一個數字判斷），故需將1~9改為字串01~09
+        {
             poker.push("H"+"0"+(parseInt(i%13)+1));
         }
-        else{//10~13則不符上述故跳出直接印出
-        poker.push("H"+(parseInt(i%13)+1));}
+        else//10~13則不符上述故跳出直接印出
+        {
+        poker.push("H"+(parseInt(i%13)+1));
+        }
         break;
     case 1:
-        if (parseInt(i%13)<9){
+        if (parseInt(i%13)<9)
+        {
             poker.push("S"+"0"+(parseInt(i%13)+1));
         }
-        else{
-        poker.push("S"+(parseInt(i%13)+1));}
+        else
+        {
+        poker.push("S"+(parseInt(i%13)+1));
+        }
         break;
     case 2:
-        if (parseInt(i%13)<9){
+        if (parseInt(i%13)<9)
+        {
             poker.push("C"+"0"+(parseInt(i%13)+1));
         }
-        else{
-        poker.push("C"+(parseInt(i%13)+1));}
+        else
+        {
+        poker.push("C"+(parseInt(i%13)+1));
+        }
         break;
     case 3:
-        if (parseInt(i%13)<9){
+        if (parseInt(i%13)<9)
+        {
             poker.push("D"+"0"+(parseInt(i%13)+1));
         }
-        else{
-        poker.push("D"+(parseInt(i%13)+1));}
+        else
+        {
+        poker.push("D"+(parseInt(i%13)+1));
+        }
         break;
 }
 }
@@ -60,7 +72,7 @@ poker.splice(rand,1);
 }
 function compare(a,b)
 {
- if(b.charCodeAt(0)==a.charCodeAt(0))//如果第一個字相同（英文）大小寫ex:A,a代碼不同
+ if(b.charCodeAt(0)==a.charCodeAt(0))//如果第一個字相同（英文）charCodeAt可判斷大小寫ex:A,a代碼不同
 {
   // compare charAt(1),charAt(2)
 
@@ -82,7 +94,7 @@ function compare(a,b)
 
 
  
-player1.sort(compare);//利用英文大小排序（大到小）
+player1.sort(compare);//英文、數字大小排序（大到小）
 
 console.log("Player1:"+player1)
 

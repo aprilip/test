@@ -4,7 +4,7 @@
 
 var weight=50.5;
 var height=160;
-var bmi = weight/((height/100)**2);
+var bmi = weight/((height/100)**2);// 除100是將公分變公尺
 
 console.log("Hello! Your BMI value is "+ bmi);
 
@@ -14,21 +14,22 @@ console.log("Hello! Your BMI value is "+ bmi);
 //另可透過package.json指定所有相關套件後 npm install 即可安裝所有套件
 
 const readline = require('readline-sync');
-weight = readline.question('請輸入您的體重(kg)?');
-height = readline.question('請輸入您的身高(cm)?'); 
+weight = readline.question('請輸入您的體重(kg)?');//使用者輸入的是字串
+height = readline.question('請輸入您的身高(cm)?');//使用者輸入的是字串
 weight=Number(weight)// 將字串轉成數字
 height=Number(height)// 將字串轉成數字
-//判斷是否合理（process)
-if(isNaN(weight)||weight<=0||weight>630)
+//下列判斷是否合理（process)
+if(isNaN(weight)||weight<=0||weight>630)//isNaN判斷是否為數值//NaN輸入不正確語言
 {
     console.log("您輸入的資料有誤！請輸入介於1~630之間的數字")
 }
-else if(isNaN(height)||height<=0||weight>220)
+else if(isNaN(height)||height<=0||weight>220)//延續if的屬性，倘若if內陳述式的程式碼與判斷式不相符，就會直接執行else if的陳述式，結尾要用else
 {
     console.log("您輸入的資料有誤！請輸入介於1~220之間的數字")
 }
-else{
-//計算bmi值
+else
+{
+//下列計算bmi值
 var bmi = weight/((height/100)**2);
 
 console.log("Hello! Your BMI value is "+ bmi);
