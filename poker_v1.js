@@ -22,7 +22,7 @@ switch(parseInt(i/13))//switch...case判斷各種不同的程式碼，而決定�
 console.log(poker.toString());//toString()用來將數字轉型成字串
 
 var player1=[], player2=[], player3=[], player4=[];
-for(let i =0;i< poker.length;)
+for(let i =0;i< poker.length;)//let宣告只能在目前區塊、階段或表達式中作用的變數
 {
 var rand=Math.floor(Math.random()*poker.length);//Math.random隨機亂碼
 //Math.floor用於將作為參數傳遞的數字沿向下取整方向(即朝較小的值)四舍五入到最接近的整數
