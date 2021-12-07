@@ -100,13 +100,16 @@ class Board{
     }
 
 DrawPoint(r,c){ //只重畫點過的位置canvas
-	if(this.game.getStatusAt(r,c)==LIVE){
-          		this.ctx2d.fillStyle = "#ff0000";                	 
-            		    }else{
-			this.ctx2d.fillStyle = "#ffffff";	
+	if(this.game.getStatusAt(r,c)==LIVE)//取得（給予）狀態
+    {
+          		this.ctx2d.fillStyle = "#ff0000";//紅色                	 
+            		    
+            }else
+            {
+			this.ctx2d.fillStyle = "#ffffff";//白色	
           }
-		this.ctx2d.fillRect(c*this.size, r*this.size, this.size, this.size);
-		this.ctx2d.fillStyle = "#ff0000";	
+		this.ctx2d.fillRect(c*this.size, r*this.size, this.size, this.size);//上色色塊大小
+		this.ctx2d.fillStyle = "#ff0000";//上色	
    }
 }
 
