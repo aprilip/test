@@ -1,7 +1,3 @@
-const myobject = document.getElementById("gameBorad");
-const mywidth = myobject.offsetWidth;  //寬度
-//const myheight = myobject.offsetHeight;  //高度
-//const mywidth=document.body.clientWidth;
 const LIVE=1, DEAD=0; 
 class Life {
     constructor(_row,_col){
@@ -77,50 +73,49 @@ Life.prototype.update = function(){
 class Board{
     constructor(_life){
         this.game = _life;
-         this.size = Math.floor(mywidth/this.game.row);
+         this.size = Math.floor(600/this.game.row);
          this.ctx2d = document.getElementById("gameBorad").getContext("2d");
          this.ctx2d.fillStyle = "#ff0000";
          this.ctx2d.lineWidth = 0.5;
      }
 
      draw(){
-        this.ctx2d.clearRect(0,0,mywidth,mywidth);//可自訂大小
+        this.ctx2d.clearRect(0,0,600,600);
        for (let r = 0; r < this.game.row; r++) {
            for (let c = 0; c < this.game.col; c++) {
                
                if(this.game.getStatusAt(r,c)==LIVE){
-                   		//fill
+                   //fill
                    this.ctx2d.fillRect(c*this.size, r*this.size, this.size, this.size);
-            			//        this.ctx2d.strokeRect(c*this.size, r*this.size, this.size, this.size);
-            			//    }else{
-            			//        //stroke
-            			//        this.ctx2d.strokeRect(c*this.size, r*this.size, this.size, this.size);
+            //        this.ctx2d.strokeRect(c*this.size, r*this.size, this.size, this.size);
+            //    }else{
+            //        //stroke
+            //        this.ctx2d.strokeRect(c*this.size, r*this.size, this.size, this.size);
                }
                this.ctx2d.strokeRect(c*this.size, r*this.size, this.size, this.size);
            }
            
        } 
     }
-
-DrawPoint(r,c){ //只重畫點過的位置canvas
-	if(this.game.getStatusAt(r,c)==LIVE)//取得（給予）狀態
-    {
-          		this.ctx2d.fillStyle = "#ff0000";//紅色                	 
-    }
-    else
-    {
-			this.ctx2d.fillStyle = "#ffffff";//白色	
-    }
-		//this.ctx2d.fillRect(c*this.size+1, r*this.size+1, this.size-1, this.size-1);
-		this.ctx2d.fillRect(c*this.size, r*this.size, this.size, this.size);
-		this.ctx2d.fillStyle = "#ff0000";//紅色上色
-		this.ctx2d.strokeRect(c*this.size, r*this.size, this.size, this.size);
-   }
 }
 
 
-//unit test
-var game = new Life(30,30);
+ //unit test
+ var game = new Life(30,30);
+var stack=[];//記錄點過的位置用
+draw2()
+{ //只重畫點過的位置
+ this.ctx2d.clearRect(0,0,600,600);
+	for( let i =0; stack.length-1; i++)
+    {
+ 		var prev= stack.pop();
+    		currentRow = prev.row;
+    		currentCol = prev.col;
+		this.ctx2d.fillRect(currentCol*this.size, currentRow*this.size, this.size, this.size);
+	}
+
+}
+
  //console.log(JSON.stringify(game))
  game.Initialize();
  // console.log("3,4: "+game.neighborCount(3,4));
@@ -141,7 +136,8 @@ function next(){
         game.setStatusAt(row,col, DEAD);
      }else{
          game.setStatusAt(row,col, LIVE);
+	 stack.push(new Point(row, col)); //記錄點過的位置用
 	}
-        //gameBorad.draw();
-	gameBorad.DrawPoint(row,col);
+     //gameBorad.draw();
+     gameBorad.draw2();
  }

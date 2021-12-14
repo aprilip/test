@@ -73,13 +73,12 @@ Life.prototype.update = function(){
 class Board{
     constructor(_life){
         this.game = _life;
-         this.size = Math.floor(600/this.game.row);
-         this.ctx2d = document.getElementById("gameBorad").getContext("2d");
-         this.ctx2d.fillStyle = "#ff0000";
-         this.ctx2d.lineWidth = 0.5;
-     }
-
-     draw(){
+        this.size = Math.floor(600/this.game.row);
+        this.ctx2d = document.getElementById("gameBorad").getContext("2d");
+        this.ctx2d.fillStyle = "#ff0000";
+        this.ctx2d.lineWidth = 0.5;
+    }
+    draw(){
         this.ctx2d.clearRect(0,0,600,600);
        for (let r = 0; r < this.game.row; r++) {
            for (let c = 0; c < this.game.col; c++) {
@@ -94,50 +93,57 @@ class Board{
                }
                this.ctx2d.strokeRect(c*this.size, r*this.size, this.size, this.size);
            }
-           
+
        } 
+    }
+    drawPoint(row,col)
+    {  //judge row & col are in suitable range
+        this.ctx2d.clearRect(col*this.size, row*this.size, this.size, this.size);
+        if(this.game.getStatusAt(row,col)==LIVE){
+            this.ctx2d.fillRect(col*this.size, row*this.size, this.size, this.size);
+        }
+        this.ctx2d.strokeRect(col*this.size, row*this.size, this.size, this.size);
     }
 }
 
 
- //unit test
- var game = new Life(30,30);
-var stack=[];//記錄點過的位置用
-draw2()
-{ //只重畫點過的位置
- this.ctx2d.clearRect(0,0,600,600);
-	for( let i =0; stack.length-1; i++)
-    {
- 		var prev= stack.pop();
-    		currentRow = prev.row;
-    		currentCol = prev.col;
-		this.ctx2d.fillRect(currentCol*this.size, currentRow*this.size, this.size, this.size);
-	}
-
-}
-
- //console.log(JSON.stringify(game))
- game.Initialize();
- // console.log("3,4: "+game.neighborCount(3,4));
+//unit test
+var game = new Life(30,30);
+//console.log(JSON.stringify(game))
+game.Initialize();
+// console.log("3,4: "+game.neighborCount(3,4));
 // console.log("3,5: "+game.neighborCount(3,5));
 // console.log("2,5: "+game.neighborCount(2,5));
 var gameBorad = new Board(game);
 gameBorad.draw();
 function next(){
-     game.update();
-     gameBorad.draw();
- }
+    game.update();
+    gameBorad.draw();
+}
+function clickHandler(event){
+    var col = Math.floor(event.offsetX/gameBorad.size);
+    var row = Math.floor(event.offsetY/gameBorad.size);
+    if(game.getStatusAt(row, col)== LIVE)
+       game.setStatusAt(row,col, DEAD);
+    else
+        game.setStatusAt(row,col, LIVE);
+    gameBorad.drawPoint(row,col);
+}
 
- function clickHandler(event)
- {
-     var col = Math.floor(event.offsetX/gameBorad.size);
-     var row = Math.floor(event.offsetY/gameBorad.size);
-     if(game.getStatusAt(row, col)== LIVE){
-        game.setStatusAt(row,col, DEAD);
-     }else{
-         game.setStatusAt(row,col, LIVE);
-	 stack.push(new Point(row, col)); //記錄點過的位置用
-	}
-     //gameBorad.draw();
-     gameBorad.draw2();
- }
+var timer;
+
+function run()
+{
+    var gap = document.getElementById("timeGap");
+
+    timer = setInterval(next, gap.value);//隔幾秒就跑下一個
+    document.getElementById("btnRun").disabled = true;//disabled設定能不能按 // true可以
+    document.getElementById("btnStop").disabled = false;// false不行
+}
+
+function stop()
+{
+   clearInterval(timer);//停止run
+   document.getElementById("btnRun").disabled = false;
+   document.getElementById("btnStop").disabled = true;
+} 
